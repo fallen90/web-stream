@@ -1,0 +1,28 @@
+{
+  "name": "nodcam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "stream.js",
+  "scripts": {
+    "start": "node stream.js 12345",
+    "get-file": "node get-file.js",
+    "ffmpeg": "ffmpeg -f avfoundation -video_size 640x480 -framerate 24 -i '0' `node get-file.js` -movflags faststart -framerate 30 -vcodec mpeg1video -preset veryfast -maxrate 3000k -bufsize 4000k -c:a aac -b:a 160k -ar 44100 -b:a 128k -f mpeg1video http://localhost:8082/12345/640/480"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahaipek/Nodcam.git"
+  },
+  "keywords": [
+    "nodejs",
+    "webcam",
+    "camera",
+    "streaming"
+  ],
+  "author": "fallen90",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "^2.21.0",
+    "ws": "^1.1.1"
+  }
+}
